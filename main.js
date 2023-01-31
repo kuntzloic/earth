@@ -6,12 +6,17 @@ const camera = new THREE.
 const renderer = new THREE.WebGLRenderer(
 
 );
-console.log(scene);
-console.log(camera);
-console.log(renderer);
 
 renderer.setSize(innerWidth, innerHeight);
 document.body.appendChild(renderer.domElement);
+
+const sphere = new THREE.Mesh(new THREE.SphereGeometry(5, 50, 50), new THREE.MeshBasicMaterial({
+    color: 0xFF0000
+}));
+
+scene.add(sphere)
+
+camera.position.z = 20;
 
 function animate() {
     requestAnimationFrame(animate);
