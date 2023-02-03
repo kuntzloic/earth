@@ -14,9 +14,15 @@ document.body.appendChild(renderer.domElement);
 
 const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(5, 50, 50),
-    new THREE.ShaderMaterial({
+    new THREE.ShaderMaterial(
+        {
             vertexShader: vertexShader,
-            fragmentShader: fragmentShader
+            fragmentShader: fragmentShader,
+            uniforms: {
+                globeTexture: {
+                    value: new THREE.TextureLoader().load('./img/globe.jpeg')
+                }
+            }
         }
     )
 );
